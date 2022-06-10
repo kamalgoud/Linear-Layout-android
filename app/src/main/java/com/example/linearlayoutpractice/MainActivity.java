@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     EditText f;
     EditText l;
     EditText m;
-    EditText a;
+
+    ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,25 @@ public class MainActivity extends AppCompatActivity {
         f=findViewById(R.id.edf);
         l=findViewById(R.id.edl);
         m=findViewById(R.id.edm);
-        a=findViewById(R.id.eda);
+
+        lv=(ListView)findViewById(R.id.lview);
+
+        ArrayList<String> al=new ArrayList<>();
+        al.add("Apple");
+        al.add("Banana");
+        al.add("cat");
+        al.add("dog");
+        al.add("egg");
+        al.add("fog");
+        al.add("god");
+        al.add("hope");
+        al.add("iron");
+        al.add("jet");
+        al.add("kit");
+        al.add("lemon");
+
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,al);
+        lv.setAdapter(arrayAdapter);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 String fn=f.getText().toString();
                 String ln=l.getText().toString();
                 String em=m.getText().toString();
-                String ea=a.getText().toString();
-                if(s.equals("123") && !fn.equals("") && !ln.equals("") && !em.equals("") && !ea.equals("") ){
+
+                if(s.equals("123") && !fn.equals("") && !ln.equals("") && !em.equals("")  ){
                     t.setText("Applied Successfully!");
                 }
                 else{
